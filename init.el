@@ -53,12 +53,26 @@
  my:el-get-packages
  '(el-get				; el-get is self-hosting
    escreen            			; screen for emacs, C-\ C-h
-   php-mode-improved			; if you're into php...
    switch-window			; takes over C-x o
    auto-complete			; complete as you type with overlays
+   auto-complete-css
+   auto-complete-yasnippet
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
    color-theme		                ; nice looking emacs
-   color-theme-tango))	                ; check out color-theme-solarized
+   color-theme-tango                    ; check out color-theme-solarized
+   color-theme-solarized
+   markdown-mode
+   ack
+   highlight-parentheses
+   js2-mode
+   php-mode-improved
+   pymacs
+   python-pep8
+   ruby-mode
+   smart-tab
+   textmate
+   yaml-mode
+))	                
 
 ;;
 ;; Some recipes require extra tools to be installed
@@ -88,14 +102,14 @@
 (column-number-mode 1)			; column numbers in the mode line
 
 (tool-bar-mode -1)			; no tool bar with icons
-(scroll-bar-mode -1)			; no scroll bars
+;; (scroll-bar-mode -1)			; no scroll bars
 (unless (string-match "apple-darwin" system-configuration)
   ;; on mac, there's always a menu bar drown, don't have it empty
   (menu-bar-mode -1))
 
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
-    (set-face-font 'default "Monaco-13")
+    (set-face-font 'default "Inconsolata-14")
   (set-face-font 'default "Monospace-10"))
 
 (global-hl-line-mode)			; highlight current line
@@ -105,7 +119,7 @@
 (add-to-list 'default-frame-alist '(alpha . 100))
 
 ;; copy/paste with C-c and C-v and C-x, check out C-RET too
-(cua-mode)
+;; (cua-mode)
 
 ;; under mac, have Command as Meta and keep Option for localized input
 (when (string-match "apple-darwin" system-configuration)
@@ -175,3 +189,10 @@
   (set-frame-parameter nil 'fullscreen
 		       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
 (global-set-key [f11] 'fullscreen)
+
+;; keys
+(global-set-key [(control return)] 'hippie-expand)
+(global-set-key (kbd "M-n") 'forward-paragraph)
+(global-set-key (kbd "M-p") 'backward-paragraph)
+;;colors
+(color-theme-deep-blue)
