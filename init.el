@@ -196,3 +196,7 @@
 (global-set-key (kbd "M-p") 'backward-paragraph)
 ;;colors
 (color-theme-deep-blue)
+
+;;uniquify
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
