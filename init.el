@@ -82,6 +82,8 @@
    yaml-mode
    dired-plus
    nav ; need to ensure hg is installed
+   nxhtml
+   python-mode
 ))	                
 
 ;;
