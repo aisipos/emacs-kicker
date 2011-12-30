@@ -84,8 +84,9 @@
    nav ; need to ensure hg is installed
    nxhtml
    python-mode
+   ropemacs
    rect-mark
-))	                
+))             
 
 ;;
 ;; Some recipes require extra tools to be installed
