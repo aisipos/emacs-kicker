@@ -84,6 +84,7 @@
    nav ; need to ensure hg is installed
    nxhtml
    python-mode
+   rect-mark
 ))	                
 
 ;;
