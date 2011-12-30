@@ -18,6 +18,7 @@
     (setq exec-path
           (append 
            '("/usr/local/bin"
+             "~/bin"
             )
            exec-path)))
 
