@@ -13,6 +13,14 @@
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
+;; Add /usr/local/bin to exec-path
+(if (eq system-type 'darwin)
+    (setq exec-path
+          (append 
+           '("/usr/local/bin"
+            )
+           exec-path)))
+
 (unless (require 'el-get nil t)
   (url-retrieve
    "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
@@ -73,6 +81,7 @@
    textmate
    yaml-mode
    dired-plus
+   nav ; need to ensure hg is installed
 ))	                
 
 ;;
