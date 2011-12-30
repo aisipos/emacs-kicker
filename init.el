@@ -85,6 +85,7 @@
    nav ; need to ensure hg is installed
    nxhtml
    python-mode
+   ipython
    ropemacs
    rect-mark
 ))             
@@ -265,5 +266,12 @@
 (defun ac-python-mode-setup ()
   (add-to-list 'ac-sources 'ac-source-yasnippet))
 
+;; custom keybindings to use tab, enter and up and down arrows
+(define-key ac-complete-mode-map "\t" 'ac-expand)
+(define-key ac-complete-mode-map "\r" 'ac-complete)
+(define-key ac-complete-mode-map "\M-n" 'ac-next)
+(define-key ac-complete-mode-map "\M-p" 'ac-previous)
+
 (add-hook 'python-mode-hook 'ac-python-mode-setup)
+(add-hook 'python-mode-hook 'flymake-mode)
 (add-hook 'rope-open-project-hook 'ac-nropemacs-setup)
