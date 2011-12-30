@@ -195,6 +195,8 @@
 (global-set-key [(control return)] 'hippie-expand)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
+(global-set-key (kbd "C-x r RET") 'revert-buffer)
+
 ;;colors
 (color-theme-deep-blue)
 
