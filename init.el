@@ -72,6 +72,7 @@
    smart-tab
    textmate
    yaml-mode
+   dired-plus
 ))	                
 
 ;;
@@ -200,3 +201,7 @@
 ;;uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
+
+;;Allow y/n instead of yes/no
+(defalias 'yes-or-no-p 'y-or-n-p)
+
