@@ -88,7 +88,8 @@
    ipython
    ropemacs
    rect-mark
-))             
+   django-mode
+))
 
 ;;
 ;; Some recipes require extra tools to be installed
@@ -314,3 +315,40 @@
 (set-face-attribute 'trailing-whitespace nil
  :background "gold"
 )
+
+;;nxhtml
+(load "nxhtml/autostart.el")
+(setq mumamo-background-colors nil)
+;;This doesn't work unless you call django-html-mumamo-mode explicitly
+;;;(add-hook 'django-html-mumamo-mode-hook #'(lambda ()  (setq yas/mode-symbol 'django-mode)))
+;;Instead we'll cheat and associate html mode with django mode for yasnippet, and 
+;;make django mode a child of html mode
+(add-hook 'html-mode-hook #'(lambda ()  (setq yas/mode-symbol 'django-mode)))
+;;For my development, default html mode is django-html-mumamo-mode
+(add-to-list 'auto-mode-alist '("\\.html\\'" .  django-html-mumamo-mode))
+
+;;Hippie expand
+(setq hippie-expand-try-functions-list
+      '(
+        yas/hippie-try-expand
+        try-expand-dabbrev
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-complete-file-name
+        try-complete-file-name-partially
+        try-complete-lisp-symbol
+        try-complete-lisp-symbol-partially
+        try-expand-line
+        try-expand-line-all-buffers
+        try-expand-list
+        try-expand-list-all-buffers
+        try-expand-whole-kill))
+
+;;YASnippet
+(yas/initialize)
+(setq yas/prompt-functions '(yas/ido-prompt))
+
+;;ido
+;;ido's definition of "everywhere" is somewhat limited
+(ido-everywhere t)
