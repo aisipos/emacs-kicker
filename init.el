@@ -275,3 +275,31 @@
 (add-hook 'python-mode-hook 'ac-python-mode-setup)
 (add-hook 'python-mode-hook 'flymake-mode)
 (add-hook 'rope-open-project-hook 'ac-nropemacs-setup)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Increase/Decrease font size on the fly
+;;; Taken from: http://is.gd/iaAo
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun ryan/increase-font-size ()
+  (interactive)
+  (set-face-attribute 'default
+                      nil
+                      :height
+                      (ceiling (* 1.10
+                                  (face-attribute 'default :height)))))
+(defun ryan/decrease-font-size ()
+  (interactive)
+  (set-face-attribute 'default
+                      nil
+                      :height
+                      (floor (* 0.9
+                                  (face-attribute 'default :height)))))
+(global-set-key (kbd "C-+") 'ryan/increase-font-size)
+(global-set-key (kbd "C--") 'ryan/decrease-font-size)
+
+;;ack
+(if (eq system-type 'gnu/linux)
+    (setq ack-command "ack-grep --nocolor --nogroup ")
+)
+
+
