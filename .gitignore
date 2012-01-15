@@ -1,0 +1,5 @@
+el-get/
+auto-save-list/
+.ido.last*
+.smex-items
+ac-comphist.dat
