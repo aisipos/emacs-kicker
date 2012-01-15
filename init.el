@@ -89,6 +89,7 @@
    ropemacs
    rect-mark
    django-mode
+   multi-term
 ))
 
 ;;
