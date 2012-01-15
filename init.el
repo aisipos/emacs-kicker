@@ -365,3 +365,6 @@
   (if (find-file (ido-completing-read "Find recent file: " recentf-list))
       (message "Opening file...")
     (message "Aborting")))
+
+;;backup files
+(setq make-backup-files nil)
