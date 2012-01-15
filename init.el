@@ -308,3 +308,9 @@
   (tooltip-mode -1)
   (mouse-wheel-mode t)
 )
+
+;;Show trailing whitespace
+(setq-default show-trailing-whitespace t)
+(set-face-attribute 'trailing-whitespace nil
+ :background "gold"
+)
