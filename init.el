@@ -186,7 +186,9 @@
 (setq ido-save-directory-list-file "~/.emacs.d/.ido.last")
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
-(setq ido-show-dot-for-dired t)
+;;(setq ido-show-dot-for-dired t)
+;;ido's definition of "everywhere" is somewhat limited
+(ido-everywhere t)
 
 ;; default key to switch buffer is C-x b, but that's not easy enough
 ;;
@@ -349,10 +351,6 @@
 (yas/initialize)
 (setq yas/prompt-functions '(yas/ido-prompt))
 
-;;ido
-;;ido's definition of "everywhere" is somewhat limited
-(ido-everywhere t)
-(setq ido-enable-flex-matching t)
 
 ;;recentf
 (require 'recentf)
