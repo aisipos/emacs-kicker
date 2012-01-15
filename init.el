@@ -9,6 +9,54 @@
 ;;
 ;; This file is NOT part of GNU Emacs.
 
+;; use ido for minibuffer completion
+(require 'ido)
+(ido-mode t)
+(setq ido-save-directory-list-file "~/.emacs.d/.ido.last")
+(setq ido-enable-flex-matching t)
+(setq ido-use-filename-at-point 'guess)
+;;(setq ido-show-dot-for-dired t)
+;;ido's definition of "everywhere" is somewhat limited
+(ido-everywhere t)
+
+;; on to the visual settings
+(setq inhibit-splash-screen t)		; no splash screen, thanks
+(line-number-mode 1)			; have line numbers and
+(column-number-mode 1)			; column numbers in the mode line
+(global-hl-line-mode)			; highlight current line
+(global-linum-mode 1)			; add line numbers on the left
+
+(tool-bar-mode -1)			; no tool bar with icons
+;; (scroll-bar-mode -1)			; no scroll bars
+(unless (string-match "apple-darwin" system-configuration)
+  ;; on mac, there's always a menu bar drown, don't have it empty
+  (menu-bar-mode -1))
+
+;; choose your own fonts, in a system dependant way
+(if (string-match "apple-darwin" system-configuration)
+    (set-face-font 'default "Inconsolata-14")
+  (set-face-font 'default "Monospace-10"))
+
+
+;; avoid compiz manager rendering bugs
+(add-to-list 'default-frame-alist '(alpha . 100))
+
+;; copy/paste with C-c and C-v and C-x, check out C-RET too
+;; (cua-mode)
+
+;; under mac, have Command as Meta and keep Option for localized input
+(when (string-match "apple-darwin" system-configuration)
+  (setq mac-allow-anti-aliasing t)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'none))
+
+;; Use the clipboard, pretty please, so that copy/paste "works"
+(setq x-select-enable-clipboard t)
+
+;; Navigate windows with M-<arrows>
+(windmove-default-keybindings 'meta)
+(setq windmove-wrap-around t)
+
 (require 'cl)				; common lisp goodies, loop
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -115,44 +163,6 @@
 ;; install new packages and init already installed packages
 (el-get 'sync my:el-get-packages)
 
-;; on to the visual settings
-(setq inhibit-splash-screen t)		; no splash screen, thanks
-(line-number-mode 1)			; have line numbers and
-(column-number-mode 1)			; column numbers in the mode line
-
-(tool-bar-mode -1)			; no tool bar with icons
-;; (scroll-bar-mode -1)			; no scroll bars
-(unless (string-match "apple-darwin" system-configuration)
-  ;; on mac, there's always a menu bar drown, don't have it empty
-  (menu-bar-mode -1))
-
-;; choose your own fonts, in a system dependant way
-(if (string-match "apple-darwin" system-configuration)
-    (set-face-font 'default "Inconsolata-14")
-  (set-face-font 'default "Monospace-10"))
-
-(global-hl-line-mode)			; highlight current line
-(global-linum-mode 1)			; add line numbers on the left
-
-;; avoid compiz manager rendering bugs
-(add-to-list 'default-frame-alist '(alpha . 100))
-
-;; copy/paste with C-c and C-v and C-x, check out C-RET too
-;; (cua-mode)
-
-;; under mac, have Command as Meta and keep Option for localized input
-(when (string-match "apple-darwin" system-configuration)
-  (setq mac-allow-anti-aliasing t)
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'none))
-
-;; Use the clipboard, pretty please, so that copy/paste "works"
-(setq x-select-enable-clipboard t)
-
-;; Navigate windows with M-<arrows>
-(windmove-default-keybindings 'meta)
-(setq windmove-wrap-around t)
-
 ; winner-mode provides C-<left> to get back to previous window layout
 (winner-mode 1)
 
@@ -181,16 +191,6 @@
 ;; Have C-y act as usual in term-mode, to avoid C-' C-y C-'
 ;; Well the real default would be C-c C-j C-y C-c C-k.
 (define-key term-raw-map  (kbd "C-y") 'term-paste)
-
-;; use ido for minibuffer completion
-(require 'ido)
-(ido-mode t)
-(setq ido-save-directory-list-file "~/.emacs.d/.ido.last")
-(setq ido-enable-flex-matching t)
-(setq ido-use-filename-at-point 'guess)
-;;(setq ido-show-dot-for-dired t)
-;;ido's definition of "everywhere" is somewhat limited
-(ido-everywhere t)
 
 ;; default key to switch buffer is C-x b, but that's not easy enough
 ;;
