@@ -302,4 +302,9 @@
     (setq ack-command "ack-grep --nocolor --nogroup ")
 )
 
-
+;;Set frame title to full path, and turn graphical tooltips off
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (tooltip-mode -1)
+  (mouse-wheel-mode t)
+)
