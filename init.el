@@ -369,6 +369,8 @@
 ;;parens
 (show-paren-mode t)
 
+(setq visible-bell t)
+
 ;;backup files
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
