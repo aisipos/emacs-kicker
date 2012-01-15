@@ -90,6 +90,7 @@
    rect-mark
    django-mode
    multi-term
+   flymake-point
 ))
 
 ;;
@@ -246,6 +247,7 @@
       (list "pycheckers"  (list local-file))))
    (add-to-list 'flymake-allowed-file-name-masks
              '("\\.py\\'" flymake-pyflakes-init)))
+(require 'flymake-point)
 
 ;; https://github.com/gabrielelanaro/emacs-for-python/blob/master/epy-completion.el
 ;; ropemacs Integration with auto-completion
