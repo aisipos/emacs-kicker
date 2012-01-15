@@ -366,8 +366,11 @@
       (message "Opening file...")
     (message "Aborting")))
 
+;;parens
+(show-paren-mode t)
+
 ;;backup files
-(setq make-backup-files nil)
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
 ;;Seems to be needed for search-at-point
 ;;Found at http://www.emacswiki.org/emacs/CompilationMode

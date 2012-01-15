@@ -1,5 +1,6 @@
 el-get/
 auto-save-list/
+backups/
 .ido.last*
 .smex-items
 ac-comphist.dat
