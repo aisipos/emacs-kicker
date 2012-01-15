@@ -407,3 +407,10 @@ by using nxml's indentation rules."
       (let ((regexp (if arg "[ \t\n]+" "[ \t]+")))
         (re-search-forward regexp nil t)
         (replace-match "" nil nil)))
+
+;;from emacs starter kit
+(defun eval-and-replace (value)
+  "Evaluate the sexp at point and replace it with its value"
+  (interactive (list (eval-last-sexp nil)))
+  (kill-sexp -1)
+  (insert (format "%S" value)))
