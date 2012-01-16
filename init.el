@@ -57,6 +57,27 @@
 (windmove-default-keybindings 'meta)
 (setq windmove-wrap-around t)
 
+;;parens
+(show-paren-mode t)
+
+(setq visible-bell t)
+
+;;backup files
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
+
+;;Set frame title to full path, and turn graphical tooltips off
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (tooltip-mode -1)
+  (mouse-wheel-mode t)
+)
+
+;;Show trailing whitespace
+(setq-default show-trailing-whitespace t)
+(set-face-attribute 'trailing-whitespace nil
+ :background "gold"
+)
+
 (require 'cl)				; common lisp goodies, loop
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -308,19 +329,6 @@
     (setq ack-command "ack-grep --nocolor --nogroup ")
 )
 
-;;Set frame title to full path, and turn graphical tooltips off
-(when window-system
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-  (tooltip-mode -1)
-  (mouse-wheel-mode t)
-)
-
-;;Show trailing whitespace
-(setq-default show-trailing-whitespace t)
-(set-face-attribute 'trailing-whitespace nil
- :background "gold"
-)
-
 ;;nxhtml
 (load "nxhtml/autostart.el")
 (setq mumamo-background-colors nil)
@@ -368,14 +376,6 @@
   (if (find-file (ido-completing-read "Find recent file: " recentf-list))
       (message "Opening file...")
     (message "Aborting")))
-
-;;parens
-(show-paren-mode t)
-
-(setq visible-bell t)
-
-;;backup files
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
 ;;Seems to be needed for search-at-point
 ;;Found at http://www.emacswiki.org/emacs/CompilationMode
