@@ -140,7 +140,7 @@
    color-theme-tango                    ; check out color-theme-solarized
    color-theme-solarized
    markdown-mode
-   ack
+   full-ack
    highlight-parentheses
    js2-mode
    php-mode-improved
@@ -327,6 +327,22 @@
 ;;ack
 (if (eq system-type 'gnu/linux)
     (setq ack-command "ack-grep --nocolor --nogroup ")
+)
+(require 'full-ack)
+(if (eq system-type 'gnu/linux)
+    (setq ack-executable (executable-find "ack-grep"))
+)
+;;Set frame title to full path, and turn graphical tooltips off
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (tooltip-mode -1)
+  (mouse-wheel-mode t)
+)
+
+;;Show trailing whitespace
+(setq-default show-trailing-whitespace t)
+(set-face-attribute 'trailing-whitespace nil
+ :background "gold"
 )
 
 ;;nxhtml
