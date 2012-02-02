@@ -484,3 +484,19 @@ This function ...
              (setq ska-isearch-occur-opened nil)))
 
 (define-key isearch-mode-map (kbd "M-o") 'ska-isearch-occur)
+
+;;https://github.com/kylpo/.emacs.d/blob/master/init.el
+(defun isearch-exit-at-opposite-end ()
+  "by default isearch forward ends at end and isearch backward
+  ends at beginning. this makes it do the opposite."
+  (interactive)
+  (add-hook 'isearch-mode-end-hook 'isearch-move-point-to-opposite-end)
+  (isearch-exit))
+
+(defun isearch-move-point-to-opposite-end ()
+  (funcall (if isearch-forward #'backward-char #'forward-char)
+           (length isearch-string))
+  (remove-hook 'isearch-mode-end-hook 'isearch-move-point-to-opposite-end))
+
+(define-key isearch-mode-map (kbd "<C-return>") 'isearch-exit-at-opposite-end)
+
