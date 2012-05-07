@@ -28,9 +28,6 @@
 
 (tool-bar-mode -1)			; no tool bar with icons
 ;; (scroll-bar-mode -1)			; no scroll bars
-(unless (string-match "apple-darwin" system-configuration)
-  ;; on mac, there's always a menu bar drown, don't have it empty
-  (menu-bar-mode -1))
 
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
