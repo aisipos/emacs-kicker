@@ -145,7 +145,7 @@
    highlight-parentheses
    js2-mode
    php-mode-improved
-   pymacs
+   ;; pymacs
    python-pep8
    ;; ruby-mode
    smart-tab
@@ -156,7 +156,7 @@
    nxhtml
    python-mode
    ipython
-   ropemacs
+   ;; ropemacs
    rect-mark
    django-mode
    multi-term
@@ -250,13 +250,13 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;;pymacs and ropemacs
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-exec "pymacs" nil t)
-(autoload 'pymacs-load "pymacs" nil t)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
+;; (autoload 'pymacs-apply "pymacs")
+;; (autoload 'pymacs-call "pymacs")
+;; (autoload 'pymacs-eval "pymacs" nil t)
+;; (autoload 'pymacs-exec "pymacs" nil t)
+;; (autoload 'pymacs-load "pymacs" nil t)
+;; (pymacs-load "ropemacs" "rope-")
+;; (setq ropemacs-enable-autoimport t)
 
 ;;flymake and pyflakes
 (when (load "flymake" t)
@@ -282,7 +282,7 @@
 
 (add-hook 'python-mode-hook 'ac-python-mode-setup)
 (add-hook 'python-mode-hook 'flymake-mode)
-(add-hook 'rope-open-project-hook 'ac-nropemacs-setup)
+;; (add-hook 'rope-open-project-hook 'ac-nropemacs-setup)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Increase/Decrease font size on the fly
