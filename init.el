@@ -93,10 +93,11 @@
 
 (unless (require 'el-get nil t)
   (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
-     (end-of-buffer)
-     (eval-print-last-sexp))))
+     (let (el-get-master-branch)
+       (goto-char (point-max))
+       (eval-print-last-sexp)))))
 
 ;; now either el-get is `require'd already, or have been `load'ed by the
 ;; el-get installer.
@@ -129,7 +130,7 @@
 ;; now set our own packages
 (setq
  my:el-get-packages
- '(el-get				; el-get is self-hosting
+ '(;;el-get				; el-get is self-hosting
    escreen            			; screen for emacs, C-\ C-h
    switch-window			; takes over C-x o
    auto-complete			; complete as you type with overlays
