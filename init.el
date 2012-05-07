@@ -147,7 +147,7 @@
    php-mode-improved
    pymacs
    python-pep8
-   ruby-mode
+   ;; ruby-mode
    smart-tab
    textmate
    yaml-mode
@@ -271,26 +271,6 @@
              '("\\.py\\'" flymake-pyflakes-init)))
 (require 'flymake-point)
 
-;; https://github.com/gabrielelanaro/emacs-for-python/blob/master/epy-completion.el
-;; ropemacs Integration with auto-completion
-(defun ac-ropemacs-candidates ()
-  (mapcar (lambda (completion)
-      (concat ac-prefix completion))
-    (rope-completions)))
-
-(ac-define-source nropemacs
-  '((candidates . ac-ropemacs-candidates)
-    (symbol     . "p")))
-
-(ac-define-source nropemacs-dot
-  '((candidates . ac-ropemacs-candidates)
-    (symbol     . "p")
-    (prefix     . c-dot)
-    (requires   . 0)))
-
-(defun ac-nropemacs-setup ()
-  (setq ac-sources (append '(ac-source-nropemacs
-                             ac-source-nropemacs-dot) ac-sources)))
 (defun ac-python-mode-setup ()
   (add-to-list 'ac-sources 'ac-source-yasnippet))
 
