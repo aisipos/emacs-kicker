@@ -271,11 +271,6 @@
              '("\\.py\\'" flymake-pyflakes-init)))
 (require 'flymake-point)
 
-(defun ac-python-mode-setup ()
-  (add-to-list 'ac-sources 'ac-source-yasnippet))
-
-
-(add-hook 'python-mode-hook 'ac-python-mode-setup)
 (add-hook 'python-mode-hook 'flymake-mode)
 ;; (add-hook 'rope-open-project-hook 'ac-nropemacs-setup)
 
