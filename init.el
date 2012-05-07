@@ -75,6 +75,9 @@
  :background "gold"
 )
 
+;;Spaces, not tabs
+(setq-default indent-tabs-mode nil)
+
 (require 'cl)				; common lisp goodies, loop
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
