@@ -347,7 +347,7 @@
 
 ;;YASnippet
 (yas/initialize)
-;;(yas/load-directory "~/.emacs.d/snippets")
+(yas/load-directory "~/.emacs.d/snippets")
 (setq yas/prompt-functions '(yas/ido-prompt))
 
 ;;recentf
