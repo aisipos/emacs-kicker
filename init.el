@@ -471,3 +471,9 @@ This function ...
 
 (define-key isearch-mode-map (kbd "<C-return>") 'isearch-exit-at-opposite-end)
 
+
+;; http://stackoverflow.com/a/9326977/149416
+(defun un-camelcase-region ()
+  (interactive
+    (progn (replace-regexp "\\([A-Z]\\)" "_\\1" nil (region-beginning)(region-end))
+           (downcase-region (region-beginning)(region-end)))))
