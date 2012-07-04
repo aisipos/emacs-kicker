@@ -161,6 +161,7 @@
    django-mode
    multi-term
    flymake-point
+   expand-region
 ))
 
 ;;
@@ -349,6 +350,11 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/snippets")
 (setq yas/prompt-functions '(yas/ido-prompt))
+
+
+;;expand-region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;;recentf
 (require 'recentf)
