@@ -327,6 +327,7 @@
 (add-hook 'html-mode-hook #'(lambda ()  (setq yas/mode-symbol 'django-mode)))
 ;;For my development, default html mode is django-html-mumamo-mode
 (add-to-list 'auto-mode-alist '("\\.html\\'" .  django-html-mumamo-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 
 ;;Hippie expand
 (setq hippie-expand-try-functions-list
