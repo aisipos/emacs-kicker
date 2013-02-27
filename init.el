@@ -9,6 +9,13 @@
 ;;
 ;; This file is NOT part of GNU Emacs.
 
+;;Add directories to PATH for shell commands
+(setenv "PATH"
+  (concat
+   "/usr/local/share/python/" ":"
+   (getenv "PATH")
+  )
+)
 ;; use ido for minibuffer completion
 (require 'ido)
 (ido-mode t)
@@ -125,7 +132,13 @@
    (:name goto-last-change		; move pointer back to last change
 	  :after (lambda ()
 		   ;; when using AZERTY keyboard, consider C-x C-_
-		   (global-set-key (kbd "C-x C-/") 'goto-last-change)))))
+		   (global-set-key (kbd "C-x C-/") 'goto-last-change)))
+   (:name jedi
+          :after (lambda ()
+                   (add-hook 'python-mode-hook 'jedi:setup)
+                   (add-hook 'python-mode-hook 'auto-complete-mode)
+                   (setq jedi:setup-keys t)))
+))
 
 ;; now set our own packages
 (setq
