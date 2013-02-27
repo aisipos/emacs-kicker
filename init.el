@@ -165,6 +165,7 @@
    magit
    magit-view-file
    magithub
+
 ))
 
 ;;
@@ -487,3 +488,8 @@ This function ...
   (interactive
     (progn (replace-regexp "\\([A-Z]\\)" "_\\1" nil (region-beginning)(region-end))
            (downcase-region (region-beginning)(region-end)))))
+
+;;dired
+(require 'diredp)
+;;(define-key ctl-x-map   "d" 'diredp-dired-files)
+;;(define-key ctl-x-4-map "d" 'diredp-dired-files-other-window)
