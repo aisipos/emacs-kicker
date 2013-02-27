@@ -162,6 +162,9 @@
    multi-term
    flymake-point
    expand-region
+   magit
+   magit-view-file
+   magithub
 ))
 
 ;;
