@@ -13,6 +13,7 @@
 (setenv "PATH"
   (concat
    "/usr/local/share/python/" ":"
+   (getenv "HOME") "/bin/" ":"
    (getenv "PATH")
   )
 )
@@ -140,7 +141,11 @@
                    (setq jedi:setup-keys t)))
    (:name helm
           :after (lambda ()
-                   (global-set-key (kbd "C-c h") 'helm-mini)))
+                   (global-set-key (kbd "C-c h") 'helm-mini)
+                   (setq helm-c-locate-command "locate-with-mdfind %.0s %s")
+                   (loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
+                         do (add-to-list 'helm-c-boring-file-regexp-list ext))
+                 ))
 ))
 
 ;; now set our own packages
