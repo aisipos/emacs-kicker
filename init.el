@@ -138,6 +138,9 @@
                    (add-hook 'python-mode-hook 'jedi:setup)
                    (add-hook 'python-mode-hook 'auto-complete-mode)
                    (setq jedi:setup-keys t)))
+   (:name helm
+          :after (lambda ()
+                   (global-set-key (kbd "C-c h") 'helm-mini)))
 ))
 
 ;; now set our own packages
@@ -178,7 +181,6 @@
    magit
    magit-view-file
    magithub
-
 ))
 
 ;;
