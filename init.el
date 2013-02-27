@@ -181,6 +181,7 @@
    magit
    magit-view-file
    magithub
+   ein
 ))
 
 ;;
