@@ -148,6 +148,13 @@
                    (loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
                          do (add-to-list 'helm-boring-file-regexp-list ext))
                  ))
+   (:name yasnippet
+          :after (progn
+                   ;;YASnippet
+                   (yas-global-mode 1)
+                   (yas-load-directory "~/.emacs.d/snippets")
+                   (setq yas-prompt-functions '(yas-ido-prompt))
+                 ))
    ;; (:name popwin
    ;;        :after (lambda ()
    ;;                 (setq display-buffer-function 'popwin:display-buffer)
@@ -205,7 +212,6 @@
 
 (when (el-get-executable-find "svn")
   (loop for p in '(psvn    		; M-x svn-status
-		   yasnippet		; powerful snippet mode
 		   )
 	do (add-to-list 'my:el-get-packages p)))
 
@@ -378,10 +384,6 @@
         try-expand-list-all-buffers
         try-expand-whole-kill))
 
-;;YASnippet
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/snippets")
-(setq yas/prompt-functions '(yas/ido-prompt))
 
 
 ;;expand-region
