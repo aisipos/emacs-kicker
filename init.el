@@ -141,11 +141,17 @@
                    (setq jedi:setup-keys t)))
    (:name helm
           :after (lambda ()
+                   (require 'helm-config)
+                   (require 'helm-files)
                    (global-set-key (kbd "C-c h") 'helm-mini)
-                   (setq helm-c-locate-command "locate-with-mdfind %.0s %s")
+                   (setq helm-locate-command "locate-with-mdfind %.0s %s")
                    (loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
-                         do (add-to-list 'helm-c-boring-file-regexp-list ext))
+                         do (add-to-list 'helm-boring-file-regexp-list ext))
                  ))
+   ;; (:name popwin
+   ;;        :after (lambda ()
+   ;;                 (setq display-buffer-function 'popwin:display-buffer)
+   ;;               ))
 ))
 
 ;; now set our own packages
