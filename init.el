@@ -155,6 +155,13 @@
                    (yas-load-directory "~/.emacs.d/snippets")
                    (setq yas-prompt-functions '(yas-ido-prompt))
                  ))
+   (:name dired-plus
+          :after (progn
+                   (require 'dired+)
+                   ;;(define-key ctl-x-map   "d" 'diredp-dired-files)
+                   ;;(define-key ctl-x-4-map "d" 'diredp-dired-files-other-window)
+
+                 ))
    ;; (:name popwin
    ;;        :after (lambda ()
    ;;                 (setq display-buffer-function 'popwin:display-buffer)
@@ -196,7 +203,6 @@
    multi-term
    flymake-point
    expand-region
-   magit
    magit-view-file
    magithub
    ein
@@ -518,7 +524,4 @@ This function ...
     (progn (replace-regexp "\\([A-Z]\\)" "_\\1" nil (region-beginning)(region-end))
            (downcase-region (region-beginning)(region-end)))))
 
-;;dired
-(require 'diredp)
-;;(define-key ctl-x-map   "d" 'diredp-dired-files)
-;;(define-key ctl-x-4-map "d" 'diredp-dired-files-other-window)
+(require 'dired+)
