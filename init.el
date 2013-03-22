@@ -162,6 +162,16 @@
                    ;;(define-key ctl-x-4-map "d" 'diredp-dired-files-other-window)
 
                  ))
+   (:name ace-jump-mode
+          :after (progn
+                   (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+                   (autoload
+                     'ace-jump-mode-pop-mark
+                     "ace-jump-mode"
+                     "Ace jump back:-)"
+                   )
+                   (ace-jump-mode-enable-mark-sync)
+                   (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)))
    ;; (:name popwin
    ;;        :after (lambda ()
    ;;                 (setq display-buffer-function 'popwin:display-buffer)
