@@ -216,6 +216,7 @@
    magit-view-file
    magithub
    ein
+   wgrep
 ))
 
 ;;
