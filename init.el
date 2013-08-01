@@ -550,3 +550,13 @@ file of a buffer in an external program."
                     " "
                     buffer-file-name))))
 (global-set-key (kbd "C-c o") 'open-with)
+
+(setq-default
+              tab-width 4                                     ; Set tab stops
+              tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44
+                              48 52 56 60 64 68 72 76 80 84)
+)
+
+;; Start a server
+;; See http://www.emacswiki.org/emacs/EmacsClient#toc42
+(server-start)
