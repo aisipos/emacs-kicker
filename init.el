@@ -325,7 +325,7 @@
    (add-to-list 'flymake-allowed-file-name-masks
              '("\\.py\\'" flymake-pyflakes-init)))
 (require 'flymake-point)
-
+p
 (add-hook 'python-mode-hook 'flymake-mode)
 ;; (add-hook 'rope-open-project-hook 'ac-nropemacs-setup)
 
@@ -560,3 +560,15 @@ file of a buffer in an external program."
 ;; Start a server
 ;; See http://www.emacswiki.org/emacs/EmacsClient#toc42
 (server-start)
+
+;;See https://gist.github.com/tkf/3951163
+;; Workaround the annoying warnings:
+;;    Warning (mumamo-per-buffer-local-vars):
+;;    Already 'permanent-local t: buffer-file-name
+(when (and (>= emacs-major-version 24)
+           (>= emacs-minor-version 2))
+  (eval-after-load "mumamo"
+    '(setq mumamo-per-buffer-local-vars
+           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+
+(set-variable 'magit-emacsclient-executable "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")
