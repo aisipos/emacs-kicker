@@ -213,6 +213,7 @@
    magithub
    ein
    wgrep
+   virtualenv
 ))
 
 ;;
