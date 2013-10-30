@@ -128,7 +128,7 @@
 
    (:name magit				; git meet emacs, and a binding
 	  :after (progn
-		   (global-set-key (kbd "C-x C-z") 'magit-status)))
+		   (global-set-key (kbd "C-x g") 'magit-status)))
 
    (:name goto-last-change		; move pointer back to last change
 	  :after (progn
