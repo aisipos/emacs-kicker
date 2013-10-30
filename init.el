@@ -204,7 +204,6 @@
    dired-plus
    nav ; need to ensure hg is installed
    nxhtml
-   ipython
    ;; ropemacs
    rect-mark
    django-mode
