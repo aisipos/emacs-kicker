@@ -12,8 +12,8 @@
 ;;Add directories to PATH for shell commands
 (setenv "PATH"
   (concat
-   "/usr/local/share/python/" ":"
    (getenv "HOME") "/bin/" ":"
+   "/usr/local/bin:"
    (getenv "PATH")
   )
 )
