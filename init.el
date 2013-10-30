@@ -325,7 +325,7 @@
    (add-to-list 'flymake-allowed-file-name-masks
              '("\\.py\\'" flymake-pyflakes-init)))
 (require 'flymake-point)
-p
+
 (add-hook 'python-mode-hook 'flymake-mode)
 ;; (add-hook 'rope-open-project-hook 'ac-nropemacs-setup)
 
