@@ -137,6 +137,7 @@
    (:name jedi
           :after (progn
                    (add-hook 'python-mode-hook 'jedi:setup)
+                   (add-hook 'python-mode-hook 'jedi:ac-setup)
                    (setq jedi:setup-keys t)))
    (:name helm
           :after (progn
@@ -336,6 +337,7 @@
 (require 'flymake-point)
 
 (add-hook 'python-mode-hook 'flymake-mode)
+(add-hook 'python-mode-hook 'auto-complete-mode)
 ;; (add-hook 'rope-open-project-hook 'ac-nropemacs-setup)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
