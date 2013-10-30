@@ -137,7 +137,6 @@
    (:name jedi
           :after (progn
                    (add-hook 'python-mode-hook 'jedi:setup)
-                   (add-hook 'python-mode-hook 'auto-complete-mode)
                    (setq jedi:setup-keys t)))
    (:name helm
           :after (progn
