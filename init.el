@@ -196,7 +196,6 @@
    js2-mode
    php-mode-improved
    ;; pymacs
-   python-pep8
    ;; ruby-mode
    smart-tab
    textmate
