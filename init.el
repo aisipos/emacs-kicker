@@ -172,6 +172,19 @@
                    )
                    (ace-jump-mode-enable-mark-sync)
                    (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)))
+   (:name switch-window
+          :after (progn
+                   (global-set-key (kbd "C-x o") 'switch-window)))
+   (:name Emacs-Groovy-Mode
+          :after (progn
+                   (add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
+                   (add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
+
+                   (add-hook 'groovy-mode-hook
+                             '(lambda()
+                                (inf-groovy-keys)
+                                (require 'groovy-electric)
+                                (groovy-electric-mode)))))
    ;; (:name popwin
    ;;        :after (lambda ()
    ;;                 (setq display-buffer-function 'popwin:display-buffer)
@@ -183,7 +196,6 @@
  my:el-get-packages
  '(;;el-get				; el-get is self-hosting
    escreen            			; screen for emacs, C-\ C-h
-   switch-window			; takes over C-x o
    auto-complete			; complete as you type with overlays
    auto-complete-css
    auto-complete-yasnippet
@@ -584,3 +596,4 @@ file of a buffer in an external program."
            (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 (set-variable 'magit-emacsclient-executable "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")
+
