@@ -597,3 +597,6 @@ file of a buffer in an external program."
 
 (set-variable 'magit-emacsclient-executable "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")
 
+;;Set Garbage Collection threshold
+;;See https://github.com/lewang/flx
+(setq gc-cons-threshold 20000000)
