@@ -600,3 +600,13 @@ file of a buffer in an external program."
 ;;Set Garbage Collection threshold
 ;;See https://github.com/lewang/flx
 (setq gc-cons-threshold 20000000)
+
+(defun join-region (beg end)
+  "Apply join-line over region."
+  (interactive "r")
+  (if mark-active
+          (let ((beg (region-beginning))
+                        (end (copy-marker (region-end))))
+                (goto-char beg)
+                (while (< (point) end)
+                  (join-line 1)))))
